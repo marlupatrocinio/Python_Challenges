@@ -11,18 +11,19 @@ nr_numbers = int(input(f"How many numbers would you like?\n"))
 
 password_list = []
 
-for _ in range(nr_letters):
-    password_list.append(random.choice(letters))
+for car in range(1, nr_letters + 1):
+  password_list.append(random.choice(letters))
 
-for _ in range(nr_symbols):
-    password_list.append(random.choice(symbols))
+for car in range(1, nr_symbols + 1):
+  password_list.append(random.choice(symbols))
 
-for _ in range(nr_numbers):
-    password_list.append(random.choice(numbers))
-
+for car in range(1, nr_numbers + 1):
+  password_list.append(random.choice(numbers))
 
 random.shuffle(password_list)
 
-password = ''.join(password_list)
+password = ""
+for char in password_list:
+  password += char
 
-print("Here is your generated password:", password)
+print(password)
