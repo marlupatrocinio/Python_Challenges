@@ -22,7 +22,7 @@ def decrypt(plainText, shiftAmount):
         newPosition = position - shiftAmount
         newLetter = alphabet[newPosition]
         codedText -= newLetter
-    print(f"The encoded text is {decodedText}")
+    print(f"The decoded text is {decodedText}")
     
 if direction == "encode":
     encrypt(text, shift)
