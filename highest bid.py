@@ -7,10 +7,10 @@ def addBids():
   bidValue = int(input("What is your bid? $"))
   bids[name] = bidValue
 
-def findHighestBid(biddingRecord):
+def findHighestBid(bids):
   highestBid = 0
-  for bidder in biddingRecord:
-    bidAmount = biddingRecord[bidder]
+  for bidder in bids:
+    bidAmount = bids[bidder]
     if bidAmount > highestBid:
       highestBid = bidAmount
       winner = bidder
