@@ -5,6 +5,22 @@ def dealCard():
   card = random.choice(cards)
   return card
 
+def checkScore(userScore, cpuScore):
+
+  if userScore == 21:
+    print("User blackJack, you win!")
+    return True
+  elif cpuScore == 21:
+    print("Cpu blackJack, you lose!")
+    return True
+  elif userScore > 21:
+    print("You lose!")
+    return True
+  elif cpuScore > 21:
+    print("You win!")
+    return True
+  return False
+
 user = []
 cpu = []
 user.append(dealCard())
@@ -19,28 +35,15 @@ print(user, cpu)
 print(userScore, cpuScore)
 endGame = False
 
-while endGame == False:
-  if userScore or cpuScore == 21:
-    if userScore == 21:
-      print("User blackJack, you win!")
-      endGame = True
-    elif cpuScore == 21:
-      print("Cpu blackJack, you lose!")
-      endGame = True
-  elif userScore or cpuScore > 21:
-    if userScore > 21:
-      print("You lose!")
-      endGame = True
-    else:
-      print("You win!")
-      endGame = True
-  
-  option = input("Do you want to get another card? type yes or no")
+while not endGame:
+  option = input("Do you want to get another card? type yes or no: ")
   if option == "yes":
     user.append(dealCard())
-    print(user)
-  
-userScore = sum(user)
+    userScore = sum(user)
+
+  endGame = checkScore(userScore, cpuScore)
+  print(user)
+  print(userScore)
 
 print(user, cpu)
 print(userScore, cpuScore)
